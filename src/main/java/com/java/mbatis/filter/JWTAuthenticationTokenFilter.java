@@ -14,8 +14,10 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.util.StringUtils;
 
 import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +27,7 @@ public class JWTAuthenticationTokenFilter extends BasicAuthenticationFilter {
         super(authenticationManager);
     }
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
         // 获取请求头中JWT的Token
         String tokenHeader = request.getHeader(JWTConfig.tokenHeader);
         if (null!=tokenHeader && tokenHeader.startsWith(JWTConfig.tokenPrefix)) {
@@ -64,6 +66,5 @@ public class JWTAuthenticationTokenFilter extends BasicAuthenticationFilter {
             }
         }
         filterChain.doFilter(request, response);
-        return;
     }
 }
