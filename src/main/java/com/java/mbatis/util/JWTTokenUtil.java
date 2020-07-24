@@ -20,7 +20,7 @@ public class JWTTokenUtil {
      */
     public static String createAccessToken(SelfUserEntity selfUserEntity){
         // 登陆成功生成JWT
-        String token = Jwts.builder()
+        return Jwts.builder()
                 // 放入用户名和用户ID
                 .setId(selfUserEntity.getUserId()+"")
                 // 主题
@@ -36,6 +36,5 @@ public class JWTTokenUtil {
                 // 签名算法和密钥
                 .signWith(SignatureAlgorithm.HS512, JWTConfig.secret)
                 .compact();
-        return token;
     }
 }

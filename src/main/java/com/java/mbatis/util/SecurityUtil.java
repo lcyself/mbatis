@@ -14,8 +14,7 @@ public class SecurityUtil {
      * 获取当前用户信息
      */
     public static SelfUserEntity getUserInfo(){
-        SelfUserEntity userDetails = (SelfUserEntity) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
-        return userDetails;
+        return (SelfUserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
     /**
      * 获取当前用户ID

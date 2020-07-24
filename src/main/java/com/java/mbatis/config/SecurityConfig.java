@@ -51,8 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 加密方式
-     * @Author Sans
-     * @CreateTime 2019/10/1 14:00
      */
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){

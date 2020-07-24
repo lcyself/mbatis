@@ -17,10 +17,6 @@ public class SelfUserDetailsService implements UserDetailsService {
 
     /**
      * 查询用户信息
-     * @Author Sans
-     * @CreateTime 2019/9/13 17:23
-     * @Param  username  用户名
-     * @Return UserDetails SpringSecurity用户信息
      */
     @Override
     public SelfUserEntity loadUserByUsername(String username) throws UsernameNotFoundException {
